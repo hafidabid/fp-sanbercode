@@ -25,6 +25,10 @@ Daftar Pertanyaan dan jawaban
                         </span>
                         <br>
                         <span class="description">Question By - {{ $li->penulis }}</span><br>
+                        <span class="description">Vote = 
+                        @php
+                        echo App\Http\Controllers\PertanyaanController::getpostscore($li->id);
+                        @endphp</span><br>
                         <span class="description">Shared publicly - {{ $li->updated_at }}</span>
 
                         <br><br>
@@ -40,9 +44,23 @@ Daftar Pertanyaan dan jawaban
                                 <a href="/pertanyaan/{{ $li->id }}/edit" class="link-black text-sm mr-2"><i
                                         class="fas fa-share mr-1"></i> edit</a>
                             @else
-                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                                <a href="#" class="link-black text-sm"><i
-                                        class="far fa-thumbs-down mr-1"></i>dislike</a>
+
+                                <form role ="form" id="likeform" name="likeform" action = "/scorepertanyaan" method = "post">
+                                {{ csrf_field() }}
+                                <input type="hidden" id="userid" name="userid" value="{{Auth::user()->id}}">
+                                <input type="hidden" id="postid" name="postid" value="{{$li->id}}">
+                                <input type="hidden" id="score" name="score" value="1">
+                                <button type="submit" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</button>
+                                </form>
+
+                                <form role ="form"  id = "dislikeform" name ="dislikeform" action="/scorepertanyaan" method = "post">
+                                {{ csrf_field() }}
+                                <input type="hidden" id="userid" name="userid" value="{{Auth::user()->id}}">
+                                <input type="hidden" id="postid" name="postid" value="{{$li->id}}">
+                                <input type="hidden" id="score" name="score" value="-1">
+                                <button type="submit" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i>dislike</button>
+                                </form>
+                                
                             @endif
                         @endif
                                  

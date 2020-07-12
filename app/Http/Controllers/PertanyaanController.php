@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\pertanyaan;
 use App\jawaban;
 use App\User;
+use App\vote;
+use App\vote_answer;
 use App\komentar_jawaban;
 use App\komentar_pertanyaan;
 use Illuminate\Http\Request;
@@ -109,6 +111,48 @@ class PertanyaanController extends Controller
         $komentar->updated_at = $date;
         $komentar -> id_user = (int) Auth::user()->id;
         $komentar -> save();
+        return redirect('');
+    }
+
+    public static function getpostscore($id){
+        $pertanyaan = pertanyaan::find($id);
+        $positif = vote::where('id_pertanyaan',$pertanyaan->id)->where('score','1')->count();
+        $negatip = vote::where('id_pertanyaan',$pertanyaan->id)->where('score','-1')->count();
+        return $positif-$negatip;
+    }
+
+    public static function givescore($idpost,$iduser,$score){
+        if(vote::where('id_pertanyaan',$idpost)->where('id_user',$iduser)->count()==0){
+            $v = new vote;
+            $v-> id_pertanyaan = (int) $idpost;
+            $v-> id_user = (int)$iduser;
+            $v-> score = (int)$score;
+            $v->save();
+
+        }else if(vote::where('id_pertanyaan',$idpost)->where('id_user',$iduser)->count()>0){
+            $a = vote::where('id_pertanyaan',$idpost)->where('id_user',$iduser)->first();
+            vote::find($a->id)->delete();
+        }
+
+        return redirect('');
+    }
+
+    function scoreYuk(Request $request){
+        if(vote::where('id_pertanyaan',$request->postid)->where('id_user',$request->userid)->count()==0){
+            $v = new vote;
+            $v-> id_pertanyaan = (int) $request->postid;
+            $v-> id_user = (int)$request->userid;
+            $v-> score = (int)$request->score;
+            $v->save();
+        }else if(vote::where('id_pertanyaan',$request->postid)->where('id_user',$request->userid)->where('score',$request->score)->count()>0){
+            vote::where('id_pertanyaan',$request->postid)->where('id_user',$request->userid)->delete();
+        }else{
+            $a = vote::where('id_pertanyaan',$request->postid)->where('id_user',$request->userid)->first();
+            $a->score= (int) -1;
+            $a->save();
+        }
+        
+
         return redirect('');
     }
 

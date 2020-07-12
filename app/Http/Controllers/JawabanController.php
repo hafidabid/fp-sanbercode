@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\pertanyaan;
 use App\jawaban;
 use Illuminate\Http\Request;
+use App\User;   
 
 
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,8 @@ class JawabanController extends Controller
             //$id = intval($pertanyaan_id);
             $listanswer = jawaban::where('id_pertanyaan',$pertanyaan_id)->get();
             $listask = pertanyaan::where('id',$pertanyaan_id)->get();
+            $penulis = User::find((int)$listask[0]["id_user"]);
+            $listask[0]["penulis"]=$penulis['name'];
             $countask = count($listanswer);
             return view('jawaban',[
             'listask'=>$listask,

@@ -18,20 +18,25 @@
                     {{ User::find($li->id_user)->name }}
                     <span class="text-muted float-right">{{ $li->updated_at }}</span>
                 </span><!-- /.username -->
-                <h5>{{ $li->judul }}</h5>
+                <h5>{{ $li->judul }}</h5> <h6>(vote: )</h6>
+                <br>
                 {!!$li->isi!!}
+                <br><br>
             </div>
             <span class="float-right">
                 <a href="" data-toggle="modal" data-target="#modal-komentarJawaban" data-id="{{ $li->id }}"
                     class="text-sm mr-2">
                     <i class="fas fa-comment-medical mr-1"></i>Add comment
                 </a>
+                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i>dislike</a>
             </span>
             @php
                 $usercom = \App\komentar_jawaban::where('id_jawaban', $li->id)->get();;
                 // var_dump($usercom);
             @endphp
             <div class=" mt-3 text-sm">
+                <ul>Komentar</ul>
                 <ul>
                     @foreach ($usercom as $item)
                         <li><b>{{ User::find($item->id_user)->name }}</b> - {{ $item->isi}}</li>

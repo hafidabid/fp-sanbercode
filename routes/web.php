@@ -31,6 +31,8 @@ Route::post('/jawaban/{pertanyaan_id}','JawabanController@create');
 Route::put('/pertanyaan/{id}','PertanyaanController@onModify');
 Route::post('/pertanyaan/komentar','PertanyaanController@komentar');
 Route::post('/pertanyaan/komentarjawab','PertanyaanController@komentarJawab');
+
+Route::post('/scorepertanyaan','PertanyaanController@scoreYuk');
 Route::get('/keluar',function(){
    Auth::logout();
    return redirect('/') ;
