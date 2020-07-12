@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\pertanyaan;
 use App\jawaban;
 use App\User;
+use App\komentar_jawaban;
+use App\komentar_pertanyaan;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -78,6 +80,36 @@ class PertanyaanController extends Controller
             'listask'=>$listask,
             'countask'=>$countask
             ]);
+    }
+    function komentar(Request $request) {
+        // var_dump($request);
+        $date = date('Y-m-d');
+        $komentar = new komentar_pertanyaan;
+        $komentar -> isi = $request->input('isi');
+        $komentar -> id_user = (int) Auth::user()->id;
+        $komentar -> created_at = $date;
+        $komentar -> updated_at = $date;
+        $komentar -> id_pertanyaan = $request->input('id_pertanyaan');
+        $komentar -> save();
+        $listask = pertanyaan::all();
+        $countask = count($listask);
+        return view('frontview',[
+            'listask'=>$listask,
+            'countask'=>$countask
+            ]);
+    }
+    function komentarJawab(Request $request) {
+        // var_dump($request);
+        $date = date('Y-m-d');
+        // echo $id;
+        $komentar = new komentar_jawaban();
+        $komentar->isi = $request->input('isi');
+        $komentar->id_jawaban = $request->input('id_jawaban');
+        $komentar->created_at = $date;
+        $komentar->updated_at = $date;
+        $komentar -> id_user = (int) Auth::user()->id;
+        $komentar -> save();
+        return redirect('');
     }
 
     
