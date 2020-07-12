@@ -56,7 +56,7 @@
                 <div class="modal-body">
                     <form role="form" action="/pertanyaan/komentarjawab/" method="post">
                         {{ csrf_field() }}
-                        <input type="text" name="id_jawaban" id="id_jawaban">
+                        <input type="hidden" name="id_jawaban" id="id_jawaban">
                         <div class="form-group">
                             <label>Komentar</label>
                             <textarea class="form-control" rows="3" placeholder="Enter ..." id="isi"
