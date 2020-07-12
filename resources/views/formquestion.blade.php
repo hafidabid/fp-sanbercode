@@ -28,7 +28,7 @@ Bikin pertanyaan baru
                       <!-- textarea -->
                       <div class="form-group">
                         <label>isi</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." id="isi" name="isi"></textarea>
+                        <textarea  class="form-control" rows="3" placeholder="Enter ..." id="isi" name="isi"></textarea>                        
                       </div>
                     </div>
                   </div>
@@ -44,4 +44,11 @@ Bikin pertanyaan baru
                   </div>
                 </form>
               </div>
+              <script>
+                $('#document').ready(function(){
+                  $('#isi').summernote({
+                    height: 150,
+                  })
+                })
+              </script>
 @endsection
