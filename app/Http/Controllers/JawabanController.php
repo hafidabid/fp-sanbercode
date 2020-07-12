@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\pertanyaan;
 use App\jawaban;
+use App\komentar_jawaban;
 use Illuminate\Http\Request;
 
 
@@ -36,7 +37,7 @@ class JawabanController extends Controller
     }
 
     function create(Request $request,$pertanyaan_id){
-        // try{
+        try{
             $newans = new jawaban;
             $newans ->judul = $request->input('judul');
             $newans ->isi = $request->input('isi');
@@ -52,9 +53,9 @@ class JawabanController extends Controller
             'countask'=>$countask,
             'listanswer' => $listanswer
             ]);                                                                                                    
-        // }catch(Expection $e){
-        //     return $e;
-        // }
+        }catch(Expection $e){
+            return $e;
+        }
         
     }
     
