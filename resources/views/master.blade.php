@@ -8,17 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('/adminlteres/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{url('/adminlteres/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- editor -->
-  <link rel="stylesheet" href="{{asset('/adminlteres/plugins/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="{{url('/adminlteres/plugins/summernote/summernote-bs4.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('/adminlteres/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{url('/adminlteres/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   {{-- jquery --}}
-  <script src="{{asset('/adminlteres/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="{{url('/adminlteres/plugins/jquery/jquery.min.js')}}"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -151,7 +151,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="{{asset('adminlteres/dist/img/AdminLTELogo.png')}}"
+      <img src="{{url('adminlteres/dist/img/AdminLTELogo.png')}}"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -164,7 +164,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         @if(Auth::check())
         <div class="image">
-          <img src="{{asset('adminlteres/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{url('adminlteres/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">
