@@ -10,7 +10,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/adminlteres/plugins/fontawesome-free/css/all.min.css">
   <!-- editor -->
-  <link rel="stylesheet" href="{{url('/adminlteres/plugins/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="/adminlteres/plugins/summernote/summernote-bs4.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
@@ -18,7 +18,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   {{-- jquery --}}
-  <script src="{{url('/adminlteres/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="/adminlteres/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -63,7 +63,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -79,7 +79,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -95,7 +95,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -151,7 +151,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="{{url('adminlteres/dist/img/AdminLTELogo.png')}}"
+      <img src="adminlteres/dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -164,7 +164,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         @if(Auth::check())
         <div class="image">
-          <img src="{{url('adminlteres/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="adminlteres/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">
@@ -419,19 +419,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a href="adminlteres/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Simple Tables</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
+                <a href="adminlteres/tables/data.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>DataTables</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
+                <a href="adminlteres/tables/jsgrid.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>jsGrid</p>
                 </a>
@@ -539,12 +539,12 @@
 <!-- jQuery -->
 @stack('scriptAdditional')
 <!-- Bootstrap 4 -->
-<script src="{{asset('/adminlteres/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="/adminlteres/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('/adminlteres/dist/js/adminlte.min.js')}}"></script>
+<script src="/adminlteres/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('/adminlteres/dist/js/demo.js')}}"></script>
+<script src="/adminlteres/dist/js/demo.js"></script>
 {{-- WYSIHTML5 editor --}}
-<script src="{{asset('/adminlteres/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<script src="/adminlteres/plugins/summernote/summernote-bs4.min.js"></script>
 </body>
 </html>
