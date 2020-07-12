@@ -27,7 +27,7 @@ Daftar Pertanyaan dan jawaban
                       </div>
                       <!-- /.user-block -->
                       <p>
-                        {{$li->isi}}
+                        {!! $li->isi !!}
                       </p>
 
                       <p>
@@ -61,7 +61,7 @@ Daftar Pertanyaan dan jawaban
                               {{csrf_field()}}
                               <div class="form-group">
                                 <label>Judul</label>
-                                <input type="text" class="form-control" placeholder="Enter ..." id ="judul" name="judul">
+                                <input type="text" class="form-control" placeholder="Enter ..." id="judul" name="judul">
                               </div>
                               <div class="form-group">
                                 <label>isi</label>
@@ -81,6 +81,14 @@ Daftar Pertanyaan dan jawaban
                       <!-- /.modal -->
       </div>
                     <br>
+                    <script>
+                      $('#document').ready(function(){
+                        $('#isi').summernote({
+                          height: 150,
+                        })
+                      })
+                    </script>
+
                     @yield('jawabanku')
                     </div>
                     <!-- /.post -->
