@@ -18,7 +18,7 @@ use App\User;
                       <span class="text-muted float-right">{{$li->updated_at}}</span>
                     </span><!-- /.username -->
                     <h5>{{$li->judul}}</h5>
-                    {{$li->isi}}
+                    {!!$li->isi!!}
                   </div>
                   <!-- /.comment-text -->
                 </div>

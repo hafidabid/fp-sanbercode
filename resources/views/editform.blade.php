@@ -44,4 +44,11 @@ edit pertanyaan
                   </div>
                 </form>
               </div>
+              <script>
+                $('#document').ready(function(){
+                  $('#isi').summernote({
+                    height: 150,
+                  })
+                })
+              </script>
 @endsection
