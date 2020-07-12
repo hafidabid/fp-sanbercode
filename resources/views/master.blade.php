@@ -206,7 +206,7 @@
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Dashboard v66</p>
                 </a>
               </li>
               <li class="nav-item">
